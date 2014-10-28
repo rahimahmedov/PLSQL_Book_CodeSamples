@@ -1,0 +1,11 @@
+DECLARE
+   var_a   VARCHAR2 (100);
+BEGIN
+   var_a := '1_BLACKCAT_1';
+   DBMS_OUTPUT.PUT_LINE (TRIM ('1' FROM var_a));
+   DBMS_OUTPUT.PUT_LINE (TRIM ('1' FROM var_a));
+   DBMS_OUTPUT.PUT_LINE (TRIM (LEADING '1' FROM var_a));
+   DBMS_OUTPUT.PUT_LINE (TRIM ('1' FROM var_a));
+   DBMS_OUTPUT.PUT_LINE (TRIM ('    1_Black Cat_1 '));
+END;
+/

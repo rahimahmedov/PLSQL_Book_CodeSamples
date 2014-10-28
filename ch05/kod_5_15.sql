@@ -1,0 +1,27 @@
+set echo on serverout on
+BEGIN
+  BEGIN
+    SAVEPOINT sp1;
+    INSERT INTO departments VALUES
+      (1100, 'New Department 2', NULL, 1700);
+  EXCEPTION
+  WHEN OTHERS THEN
+    ROLLBACK WORK TO SAVEPOINT sp1;
+  END;
+  BEGIN
+    SAVEPOINT sp2;
+    DELETE FROM departments WHERE department_id = 1000;
+  EXCEPTION
+  WHEN OTHERS THEN
+    ROLLBACK WORK TO SAVEPOINT sp2;
+  END;
+  BEGIN
+    SAVEPOINT sp3;
+    DELETE FROM departments WHERE department_id = 10;
+  EXCEPTION
+  WHEN OTHERS THEN
+    ROLLBACK WORK TO SAVEPOINT sp3;
+  END;
+  COMMIT;
+END;
+/

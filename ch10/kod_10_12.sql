@@ -1,0 +1,10 @@
+DECLARE
+  v_clob1 CLOB;
+  v_clob2 CLOB;
+BEGIN
+  v_clob1 := 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+  v_clob2 := 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF';
+  DBMS_LOB.COPY(v_clob1, v_clob2, 10,  5, 1);
+  DBMS_OUTPUT.PUT_LINE('Copy result: '||v_clob1);
+END;
+/
